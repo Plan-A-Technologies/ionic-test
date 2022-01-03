@@ -8,20 +8,20 @@ import { CountryHoliday } from '../model/country-holiday';
 })
 export class HolidaysService {
 
-  findCountries() : Observable<Country[]> {
-    return of([])
+  findCountries(): Observable<Country[]> {
+    return of([]);
   }
 
-  findCountryHolidays(country: string) : Observable<CountryHoliday[]> {
+  findCountryHolidays(country: string): Observable<CountryHoliday[]> {
     return of([]);
   }
 
 }
 
 type CountryApiResponse = {
-  countries: Country[]
-}
+  countries: Country[];
+};
 
 type CountryHolidaysApiResponse = {
-  holidays: CountryHoliday[]
-}
+  holidays: CountryHoliday[];
+};

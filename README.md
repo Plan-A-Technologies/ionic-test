@@ -27,10 +27,16 @@ You will need to create an account on that API in order to use it.
 2. Each country holiday element should have the id equal to the holiday name (as id="<holiday.name>") and the class 'holiday' (as class="holiday");
 3. This page should have a back button that takes the user back to the home page
 
-## Further Instructions
+## Differentials
+
+A good UI, commented code and using angular features that were not required are differentials.
+
+<!-- ## Further Instructions -->
 
 # Commands
 
 Install the project: npm install
+
 Run the project: npm start
+
 Run the project unit tests: npm test

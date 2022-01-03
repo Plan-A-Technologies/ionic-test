@@ -31,64 +31,64 @@ describe('LoginPage', () => {
   it('given email is empty, then login button should be disabled', () => {
     fixture.detectChanges();
 
-    component.form.get("password").setValue("12345678");
+    component.form.get('password').setValue('12345678');
     fixture.detectChanges();
 
-    expect(page.querySelector("#login").disabled).toBeTruthy();
+    expect(page.querySelector('#login').disabled).toBeTruthy();
   });
 
   it('given email is invalid, then login button should be disabled', () => {
     fixture.detectChanges();
 
-    component.form.get("email").setValue("invalidEmail");
-    component.form.get("password").setValue("12345678");
+    component.form.get('email').setValue('invalidEmail');
+    component.form.get('password').setValue('12345678');
     fixture.detectChanges();
 
-    expect(page.querySelector("#login").disabled).toBeTruthy();
+    expect(page.querySelector('#login').disabled).toBeTruthy();
   });
 
   it('given password is empty, then login button should be disabled', () => {
     fixture.detectChanges();
 
-    component.form.get("email").setValue("any@email.com");
-    component.form.get("password").setValue("");
+    component.form.get('email').setValue('any@email.com');
+    component.form.get('password').setValue('');
     fixture.detectChanges();
 
-    expect(page.querySelector("#login").disabled).toBeTruthy();
+    expect(page.querySelector('#login').disabled).toBeTruthy();
   });
 
   it('given password has less than 6 characters, then login button should be disabled', () => {
     fixture.detectChanges();
 
-    component.form.get("email").setValue("any@email.com");
-    component.form.get("password").setValue("12345");
+    component.form.get('email').setValue('any@email.com');
+    component.form.get('password').setValue('12345');
     fixture.detectChanges();
 
-    expect(page.querySelector("#login").disabled).toBeTruthy();
+    expect(page.querySelector('#login').disabled).toBeTruthy();
   });
 
   it('given email and password are filled and valid, then login button should be enabled', () => {
     fixture.detectChanges();
 
-    component.form.get("email").setValue("any@email.com");
-    component.form.get("password").setValue("12345678");
+    component.form.get('email').setValue('any@email.com');
+    component.form.get('password').setValue('12345678');
     fixture.detectChanges();
 
-    expect(page.querySelector("#login").disabled).toBeFalsy();
+    expect(page.querySelector('#login').disabled).toBeFalsy();
   });
 
   it('given form is valid, when user clicks on login butotn, then go to home page', done => {
     fixture.detectChanges();
 
-    component.form.get("email").setValue("any@email.com");
-    component.form.get("password").setValue("12345678");
+    component.form.get('email').setValue('any@email.com');
+    component.form.get('password').setValue('12345678');
     fixture.detectChanges();
 
-    page.querySelector("#login").click();
+    page.querySelector('#login').click();
     fixture.detectChanges();
 
     setTimeout(() => {
-      expect(location.path()).toEqual("/home");
+      expect(location.path()).toEqual('/home');
       done();
     }, 500);
   });

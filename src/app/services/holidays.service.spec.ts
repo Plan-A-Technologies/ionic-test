@@ -16,16 +16,16 @@ describe('HolidaysService', () => {
 
   it('find countries should return brazil', done => {
     service.findCountries().subscribe(response => {
-      expect(response.some(r => r.code == "BR")).toBeTruthy();
+      expect(response.some(r => r.code === 'BR')).toBeTruthy();
       done();
-    })
+    });
   });
 
   it('find holidays by country code equal to brazil should Carnival', done => {
-    service.findCountryHolidays("BR").subscribe(response => {
-      expect(response.some(r => r.name == "Carnival")).toBeTruthy();
+    service.findCountryHolidays('BR').subscribe(response => {
+      expect(response.some(r => r.name === 'Carnival')).toBeTruthy();
       done();
-    })
+    });
   });
 
 });
