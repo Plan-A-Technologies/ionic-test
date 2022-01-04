@@ -1,9 +1,12 @@
 import { Location } from '@angular/common';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from '../home/home.page';
 import { LoginPage } from './login.page';
 import { RouterTestingModule } from '@angular/router/testing';
+import { DebugElement } from '@angular/core';
+import { By } from 'protractor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('LoginPage', () => {
   let component: LoginPage;
@@ -19,6 +22,7 @@ describe('LoginPage', () => {
         RouterTestingModule.withRoutes([
           {path: 'home', component: HomePage}
         ]),
+        ReactiveFormsModule
       ]
     }).compileComponents();
 
@@ -26,6 +30,7 @@ describe('LoginPage', () => {
     location = TestBed.get(Location);
     component = fixture.componentInstance;
     page = fixture.debugElement.nativeElement;
+    fixture.detectChanges();
   }));
 
   it('given email is empty, then login button should be disabled', () => {
@@ -77,20 +82,21 @@ describe('LoginPage', () => {
     expect(page.querySelector('#login').disabled).toBeFalsy();
   });
 
-  it('given form is valid, when user clicks on login butotn, then go to home page', done => {
+  it('given form is valid, when user clicks on login button, then go to home page', fakeAsync(() => {
+    const dummyData = {
+      email: 'any@email.com',
+      password: '12345678'
+    };
+
+    component.form.patchValue(dummyData);
     fixture.detectChanges();
 
-    component.form.get('email').setValue('any@email.com');
-    component.form.get('password').setValue('12345678');
-    fixture.detectChanges();
+    expect(component.form.valid).toEqual(true);
 
     page.querySelector('#login').click();
-    fixture.detectChanges();
+    tick(500);
 
-    setTimeout(() => {
-      expect(location.path()).toEqual('/home');
-      done();
-    }, 500);
-  });
+    expect(location.path()).toEqual('/home');
+  }));
 
 });
