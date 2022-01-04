@@ -33,6 +33,9 @@ describe('CountryHolidaysPage', () => {
               return "BR"
             }
           }
+        },
+        params: {
+          id: "BR"
         }
       }
     }})

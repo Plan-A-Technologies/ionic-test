@@ -10,8 +10,9 @@ Complete and push this before the interview.
 Implement a login form using FormGroup/FormBuilder with the following:
 1. Email address (required and valid email address). Its form control name should be "email";
 2. A Password field (required and at least 6 character long). Its form control name should be "password";
-3. A Submit Button that only gets enabled when the form is valid. Its id should be "login";
-4. When the user clicks on the enabled submit button, then go to the home page.
+3. A button that only gets enabled when the form is valid. Its id should be "login";
+4. When the user clicks on the enabled button, then go to the home page.
+5. That button should not have its type equal to submit.
 
 ### Home page (/home):
 Implement a home page that lists all the countries that come from the API listed on https://m3o.com/holidays/api#List.
